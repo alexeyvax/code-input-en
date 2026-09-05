@@ -5,13 +5,17 @@ Code Input EN is a small native macOS menu bar utility that selects a chosen ASC
 Repository: `code-input-en`  
 Homebrew Cask token: `code-input-en`
 
-## Requirements and build
+## Requirements
 
 - macOS 13.0 or newer
-- Xcode with the macOS SDK
+- Xcode with the macOS SDK when building from source
 - No third-party dependencies
 
-Open `CodeInputEN.xcodeproj` in Xcode and run the `CodeInputEN` scheme, or build from the repository root:
+## Install
+
+For a published version, download the notarized ZIP from [GitHub Releases](https://github.com/alexeyvax/code-input-en/releases), unzip it, move `Code Input EN.app` to `/Applications`, and launch it. Release assets will appear there after the first release is published.
+
+To build from source, open `CodeInputEN.xcodeproj` in Xcode and run the `CodeInputEN` scheme, or run:
 
 ```bash
 xcodebuild \
@@ -34,9 +38,9 @@ xcodebuild \
   test
 ```
 
-## Install and use
+## Use
 
-Build the app, move `Code Input EN.app` to `/Applications`, and launch it. Finder displays it as **Code Input EN**. It appears as an `en` icon in the menu bar and does not appear in the Dock. On first launch it prefers an installed English layout matching the Mac's region (U.S., British, Australian, Canadian, Irish, New Zealand, or ABC – India), then falls back to ABC, U.S., or the first available ASCII-capable source.
+The app appears as an `en` icon in the menu bar and does not appear in the Dock. On first launch it prefers an installed English layout matching the Mac's region (U.S., British, Australian, Canadian, Irish, New Zealand, or ABC – India), then falls back to ABC, U.S., or the first available ASCII-capable source.
 
 The menu provides:
 
@@ -49,15 +53,13 @@ Settings are stored in `UserDefaults`. The source is saved by its stable Text In
 
 ## Privacy
 
-Code Input EN has no networking, telemetry, analytics, crash reporting, or third-party runtime code. It observes foreground application changes locally and writes preferences only when you change a setting. It does not use Accessibility, AppleScript, or simulated keystrokes.
+Code Input EN has no networking, telemetry, analytics, crash reporting, or third-party runtime code. It observes foreground application changes locally and writes preferences only when you change a setting. It does not use Accessibility, AppleScript, or simulated keystrokes. See the complete [privacy policy](PRIVACY.md).
 
 ## Troubleshooting
 
-If the menu says the selected layout is unavailable, add an English/ASCII-capable input source in **System Settings → Keyboard → Text Input → Edit**, then choose it from **English Layout**. If Launch at Login shows an approval warning, allow Code Input EN in **System Settings → General → Login Items**; the menu reflects macOS's actual registration status.
+If the menu says the selected layout is unavailable, add an English/ASCII-capable input source in **System Settings → Keyboard → Text Input → Edit**, then choose it from **English Layout**. Only input sources enabled in macOS appear in the menu.
 
-Only input sources enabled in macOS appear in the menu. To use British, Australian, Canadian, Irish, New Zealand, ABC – India, U.S. International, or another layout, first add it in **System Settings → Keyboard → Text Input → Edit**.
-
-For a locally built app, Launch at Login works most reliably after moving `Code Input EN.app` to `/Applications` and launching it from there. Rebuild and relaunch after changing its bundle location.
+If Launch at Login shows an approval warning, allow Code Input EN in **System Settings → General → Login Items**. For a locally built app, Launch at Login works most reliably after moving `Code Input EN.app` to `/Applications` and launching it from there. Rebuild and relaunch after changing its bundle location.
 
 ## Removal
 
